@@ -18,7 +18,9 @@ export interface Product {
   rationale: string;
   size: string;
   price: string;
-  tint: string; // card background, matches packaging
+  tint: string; // card background, matches the packshot backdrop
+  image: string; // packshot, 4:5
+  swatch: string; // texture close-up, square
   ink: string; // accent text on the tint
   links: { amazon: string; nykaa: string; flipkart: string };
 }
@@ -38,7 +40,9 @@ export const PRODUCTS: Product[] = [
       'High humidity traps sweat and sebum on the skin, which can congest pores. This oil-free gel draws moisture from the air and dries down completely, so nothing heavy sits on your skin or holds in heat.',
     size: '50 g',
     price: '₹ —',
-    tint: '#DCE8F0',
+    tint: '#BAD5E6',
+    image: '/images/sku-01.webp',
+    swatch: '/images/texture-01.webp',
     ink: '#2F5470',
     links: {
       amazon: 'https://www.amazon.in/',
@@ -60,7 +64,9 @@ export const PRODUCTS: Product[] = [
       'Hot, dry winds and long hours in air-conditioning pull water out of skin fast. Squalane and micro-ceramides form a light, breathable seal that keeps hydration in without a greasy feel.',
     size: '50 ml',
     price: '₹ —',
-    tint: '#DDE5D3',
+    tint: '#C7CEB4',
+    image: '/images/sku-02.webp',
+    swatch: '/images/texture-02.webp',
     ink: '#4A5E3A',
     links: {
       amazon: 'https://www.amazon.in/',
@@ -82,7 +88,9 @@ export const PRODUCTS: Product[] = [
       'Mild climates need steady upkeep rather than rescue. The 2:1:1 lipid ratio mirrors your skin’s own barrier, replenishing what everyday life wears away.',
     size: '50 ml',
     price: '₹ —',
-    tint: '#F1DEC9',
+    tint: '#EAC8A9',
+    image: '/images/sku-03.webp',
+    swatch: '/images/texture-03.webp',
     ink: '#8A5A33',
     links: {
       amazon: 'https://www.amazon.in/',
@@ -104,7 +112,9 @@ export const PRODUCTS: Product[] = [
       'Freezing air slows your skin’s own lipid production and causes tiny cracks in the barrier. In the cold, this overrides everything else: a dense water-in-oil balm that shields and repairs.',
     size: '50 g',
     price: '₹ —',
-    tint: '#ECEAE6',
+    tint: '#D7D0CA',
+    image: '/images/sku-04.webp',
+    swatch: '/images/texture-04.webp',
     ink: '#3E4652',
     links: {
       amazon: 'https://www.amazon.in/',

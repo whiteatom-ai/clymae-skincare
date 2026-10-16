@@ -26,10 +26,11 @@ export default function Hero() {
 
       <div className="rise mt-16 overflow-hidden md:mt-20" style={{ animationDelay: '0.15s' }}>
         <Image
-          src="/images/clymae-lineup.jpg"
+          src="/images/hero.webp"
           alt="The four CLYMAE moisturizers: Zero-Weight Water Gel, Balancing Fluid Milk, Ceramide Comfort Lotion and SOS Rescue Butter"
-          width={1024}
-          height={683}
+          width={1672}
+          height={941}
+          sizes="(min-width: 1152px) 1088px, 100vw"
           priority
           className="h-auto w-full"
         />

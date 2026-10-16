@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { calculatePrescription, type Modifiers, type SkinFeel, type Zone } from '@/lib/engine';
 import ShopLinks from './ShopLinks';
 
@@ -172,44 +173,55 @@ export default function Quiz() {
 
           {result && (
             <div key="result" className="rise">
-              <div className="p-7 md:p-12" style={{ background: result.product.tint }}>
-                <p className="text-[11px] uppercase tracking-label" style={{ color: result.product.ink }}>
-                  Your match · No. {result.product.number}
-                </p>
-                <h3 className="mt-4 font-serif text-4xl font-light leading-tight md:text-5xl">{result.product.name}</h3>
-                <p className="mt-2 text-slate">{result.product.format}</p>
-
-                <div className="mt-8 grid gap-8 border-t border-ink/10 pt-8 md:grid-cols-[1.4fr_1fr]">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Why this works for you</p>
-                    <p className="mt-3 leading-relaxed">{result.product.rationale}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Key actives</p>
-                    <ul className="mt-3 space-y-1.5">
-                      {result.product.actives.map((a) => (
-                        <li key={a}>{a}</li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="grid md:grid-cols-[2fr_3fr]" style={{ background: result.product.tint }}>
+                <div className="relative aspect-[4/5] md:aspect-auto">
+                  <Image
+                    src={result.product.image}
+                    alt={`CLYMAE ${result.product.name}`}
+                    fill
+                    sizes="(min-width: 768px) 300px, 100vw"
+                    className="object-cover"
+                  />
                 </div>
-
-                {result.tips.length > 0 && (
-                  <div className="mt-8 border-t border-ink/10 pt-8">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Also for your routine</p>
-                    <ul className="mt-3 space-y-2 text-sm leading-relaxed">
-                      {result.tips.map((t) => (
-                        <li key={t}>— {t}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <div className="mt-10">
-                  <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-slate">
-                    Buy {result.product.size} · {result.product.price}
+                <div className="p-7 md:p-10">
+                  <p className="text-[11px] uppercase tracking-label" style={{ color: result.product.ink }}>
+                    Your match · No. {result.product.number}
                   </p>
-                  <ShopLinks product={result.product} />
+                  <h3 className="mt-4 font-serif text-4xl font-light leading-tight md:text-5xl">{result.product.name}</h3>
+                  <p className="mt-2 text-slate">{result.product.format}</p>
+
+                  <div className="mt-8 grid gap-8 border-t border-ink/10 pt-8">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Why this works for you</p>
+                      <p className="mt-3 leading-relaxed">{result.product.rationale}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Key actives</p>
+                      <ul className="mt-3 space-y-1.5">
+                        {result.product.actives.map((a) => (
+                          <li key={a}>{a}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {result.tips.length > 0 && (
+                    <div className="mt-8 border-t border-ink/10 pt-8">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate">Also for your routine</p>
+                      <ul className="mt-3 space-y-2 text-sm leading-relaxed">
+                        {result.tips.map((t) => (
+                          <li key={t}>— {t}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="mt-10">
+                    <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-slate">
+                      Buy {result.product.size} · {result.product.price}
+                    </p>
+                    <ShopLinks product={result.product} />
+                  </div>
                 </div>
               </div>
 

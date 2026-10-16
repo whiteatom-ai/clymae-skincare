@@ -1,12 +1,36 @@
-import { PRODUCTS } from '@/data/products';
+import Image from 'next/image';
+import { getProduct, type SkuId } from '@/data/products';
 
-const CLIMATES = [
-  { name: 'Humid heat', place: 'Mumbai · Chennai · monsoon', effect: 'Sweat and oil sit on skin and clog pores.' },
-  { name: 'Dry heat', place: 'Delhi summer · AC offices', effect: 'Dry air pulls water out of skin, fast.' },
-  { name: 'Temperate', place: 'Bengaluru · Pune', effect: 'Mild air — skin needs steady, daily upkeep.' },
-  { name: 'Cold & dry', place: 'North Indian winter · hills', effect: 'Cold slows natural oils; the barrier cracks.' },
+const CLIMATES: { name: string; place: string; effect: string; image: string; sku: SkuId }[] = [
+  {
+    name: 'Humid heat',
+    place: 'Mumbai · Chennai · monsoon',
+    effect: 'Sweat and oil sit on skin and clog pores.',
+    image: '/images/climate-humid.webp',
+    sku: 'SKU-01',
+  },
+  {
+    name: 'Dry heat',
+    place: 'Delhi summer · AC offices',
+    effect: 'Dry air pulls water out of skin, fast.',
+    image: '/images/climate-dry.webp',
+    sku: 'SKU-02',
+  },
+  {
+    name: 'Temperate',
+    place: 'Bengaluru · Pune',
+    effect: 'Mild air — skin needs steady, daily upkeep.',
+    image: '/images/climate-temperate.webp',
+    sku: 'SKU-03',
+  },
+  {
+    name: 'Cold & dry',
+    place: 'North Indian winter · hills',
+    effect: 'Cold slows natural oils; the barrier cracks.',
+    image: '/images/climate-cold.webp',
+    sku: 'SKU-04',
+  },
 ];
-const ORDER = ['SKU-01', 'SKU-02', 'SKU-03', 'SKU-04'];
 
 export default function Thesis() {
   return (
@@ -27,22 +51,28 @@ export default function Thesis() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 border-t border-ivory/15 sm:grid-cols-2 lg:grid-cols-4">
-          {CLIMATES.map((c, i) => {
-            const p = PRODUCTS.find((x) => x.id === ORDER[i])!;
+        <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {CLIMATES.map((c) => {
+            const p = getProduct(c.sku);
             return (
-              <div
-                key={c.name}
-                className="border-b border-ivory/15 py-8 sm:px-6 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0 lg:first:pl-0"
-              >
-                <span className="block h-1.5 w-8" style={{ background: p.tint }} />
-                <h3 className="mt-5 font-serif text-2xl">{c.name}</h3>
+              <div key={c.name}>
+                <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/5]">
+                  <Image
+                    src={c.image}
+                    alt={c.name}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover opacity-90"
+                  />
+                </div>
+                <span className="mt-6 block h-1 w-8" style={{ background: p.tint }} />
+                <h3 className="mt-4 font-serif text-2xl">{c.name}</h3>
                 <p className="mt-1 text-xs uppercase tracking-[0.15em] text-ivory/45">{c.place}</p>
-                <p className="mt-4 text-sm leading-relaxed text-ivory/75">{c.effect}</p>
-                <p className="mt-5 text-sm">
+                <p className="mt-3 text-sm leading-relaxed text-ivory/75">{c.effect}</p>
+                <a href="#collection" className="mt-4 inline-block text-sm hover:text-[#C9B3B5]">
                   <span className="text-ivory/45">→ </span>
                   {p.name}
-                </p>
+                </a>
               </div>
             );
           })}
