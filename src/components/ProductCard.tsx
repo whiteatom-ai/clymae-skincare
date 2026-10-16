@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import type { Product } from '@/data/products';
+import { PREVIEW } from '@/data/site';
 import ShopLinks from './ShopLinks';
 
 export default function ProductCard({ product: p }: { product: Product }) {
@@ -69,8 +70,9 @@ export default function ProductCard({ product: p }: { product: Product }) {
           {open ? (
             <ShopLinks product={p} />
           ) : (
-            <button onClick={() => setOpen(true)} className="btn-dark w-full">
-              Shop
+            <button onClick={() => setOpen(true)} className="btn-dark w-full flex-col gap-0.5 py-3">
+              <span className="text-[13px]">Shop</span>
+              {PREVIEW && <span className="text-[9px] normal-case tracking-[0.12em] text-ivory/60">(coming soon)</span>}
             </button>
           )}
         </div>

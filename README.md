@@ -4,6 +4,16 @@ A single-page showcase site for the four CLYMAE moisturizers, with a three-quest
 
 Built with Next.js 14, TypeScript and Tailwind CSS.
 
+## Preview mode (on by default)
+
+`src/data/site.ts` has `PREVIEW = true`. While it's on:
+
+- a "Preview: not launched yet" bar shows at the top of every page
+- store buttons show "Coming soon" instead of linking out
+- search engines are asked not to index the site
+
+**On launch day:** add the real links and prices (below), then set `PREVIEW = false` and push.
+
 ## Edit products, prices and buy links
 
 Everything lives in **`src/data/products.ts`**. For each SKU, replace:

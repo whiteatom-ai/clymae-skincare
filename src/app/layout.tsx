@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Jost } from 'next/font/google';
+import { PREVIEW } from '@/data/site';
 import './globals.css';
 
 const serif = Cormorant_Garamond({
@@ -25,7 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000',
   ),
-  title: 'CLYMAE — Climate-Personalized Skincare',
+  title: PREVIEW ? 'CLYMAE (Preview) — Climate-Personalized Skincare' : 'CLYMAE — Climate-Personalized Skincare',
+  robots: PREVIEW ? { index: false, follow: false } : undefined,
   description:
     'Four moisturizers, each made for the air you live in — humid, dry heat, cold or temperate. Take the 30-second quiz to find yours.',
   openGraph: {
