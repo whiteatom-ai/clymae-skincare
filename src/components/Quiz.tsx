@@ -91,6 +91,7 @@ export default function Quiz() {
           <h2 className="mt-4 font-serif text-4xl font-light md:text-5xl">
             Three questions. <em>One match.</em>
           </h2>
+          <p className="mt-4 text-sm text-slate">Takes 30 seconds · No sign-up</p>
           {step < 3 && (
             <div className="mt-8 flex items-center justify-center gap-2" aria-label={`Question ${step + 1} of 3`}>
               {[0, 1, 2].map((i) => (
@@ -102,7 +103,7 @@ export default function Quiz() {
 
         <div className="mt-12">
           {step === 0 && (
-            <div key="q1" className="rise">
+            <div key="q1" className="rise mx-auto max-w-2xl">
               <h3 className="mb-6 text-center font-serif text-2xl md:text-3xl">Where do you spend most of your days?</h3>
               <div className="space-y-3">
                 {ZONES.map((z) => (
@@ -122,7 +123,7 @@ export default function Quiz() {
           )}
 
           {step === 1 && (
-            <div key="q2" className="rise">
+            <div key="q2" className="rise mx-auto max-w-2xl">
               <h3 className="mb-6 text-center font-serif text-2xl md:text-3xl">By mid-afternoon, your skin feels…</h3>
               <div className="space-y-3">
                 {SKIN.map((s) => (
@@ -145,7 +146,7 @@ export default function Quiz() {
           )}
 
           {step === 2 && (
-            <div key="q3" className="rise">
+            <div key="q3" className="rise mx-auto max-w-2xl">
               <h3 className="mb-2 text-center font-serif text-2xl md:text-3xl">Do any of these apply to you?</h3>
               <p className="mb-6 text-center text-sm text-slate">Choose all that apply — or none.</p>
               <div className="space-y-3">

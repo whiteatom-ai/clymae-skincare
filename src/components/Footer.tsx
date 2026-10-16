@@ -10,23 +10,20 @@ export default function Footer() {
             <Wordmark light className="text-2xl" />
             <p className="mt-3 text-[11px] uppercase tracking-label text-[#C9B3B5]">Skin thrives in its climate</p>
           </div>
-          {PREVIEW ? (
-            <p className="text-[11px] uppercase tracking-[0.16em] text-ivory/70">
-              Launching soon on Amazon · Nykaa · Flipkart
-            </p>
-          ) : (
-            <div className="flex gap-8 text-[11px] uppercase tracking-[0.16em] text-ivory/70">
-              <a href="https://www.amazon.in/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory">
-                Amazon
-              </a>
-              <a href="https://www.nykaa.com/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory">
-                Nykaa
-              </a>
-              <a href="https://www.flipkart.com/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory">
-                Flipkart
-              </a>
-            </div>
-          )}
+          <nav className="flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.16em] text-ivory/70">
+            <a href="#climate" className="hover:text-ivory">
+              The idea
+            </a>
+            <a href="#collection" className="hover:text-ivory">
+              Collection
+            </a>
+            <a href="#quiz" className="hover:text-ivory">
+              Find yours
+            </a>
+            <a href="#top" className="hover:text-ivory">
+              Back to top ↑
+            </a>
+          </nav>
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-ivory/15 pt-6 text-xs text-ivory/45 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} CLYMAE. All rights reserved.</p>

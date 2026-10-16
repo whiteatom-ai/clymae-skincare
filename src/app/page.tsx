@@ -4,6 +4,7 @@ import Thesis from '@/components/Thesis';
 import Collection from '@/components/Collection';
 import Ritual from '@/components/Ritual';
 import Quiz from '@/components/Quiz';
+import Closing from '@/components/Closing';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Collection />
         <Ritual />
         <Quiz />
+        <Closing />
       </main>
       <Footer />
     </>
